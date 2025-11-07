@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- font awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css?v=20251023">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <i class="fa-solid fa-code"></i> BlackPixel
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html" target="_self">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li class="dropdown">
+                    <a href="#services">Services</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Web Design</a></li>
+                        <li><a href="#">Development</a></li>
+                        <li><a href="#">Collaborative</a></li>
+                    </ul>
+                </li>
+                <li><a href="contact.html" target="_self">Contact</a></li>
+                <li><a href="about.html" target="_self">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <div class="contact-container">
+            <h2 class="contact-heading">Get in Touch</h2>
+            <p class="contact-subheading">We'd love to hear from you!</p>
+
+            <form class="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" required></textarea>
+                <button type="submit" class="cta-button">Send Message</button>
+            </form>
+        </div>
+    </section>
+</body>
+ <!--- form validations-->
+ <!-- validation no empty fields-->
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.querySelector('.contact-form');
+
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const name = this.querySelector('input[type="text"]').value.trim();
+        const email = this.querySelector('input[type="email"]').value.trim();
+        const message = this.querySelector('textarea').value.trim();
+
+        if (name === '' || email === '' || message === '') {
+            alert('Please fill in all fields.');
+            return;
+        }
+
+        const submissions = JSON.parse(localStorage.getItem("Contacts")) || [];
+        submissions.push({ name, email, message });
+        localStorage.setItem("Contacts", JSON.stringify(submissions));
+
+        alert('Form submitted successfully!');
+        this.reset();
+    });
+});
+
+
+
+
+</script>
+<!-- End of form validations -->
+<!-- Footer Section -->
+    <footer>
+        <div class="footer-content">
+            <p class="footer-copyright"> © 2025 BlackPixel. All rights reserved</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <span class="separator">|</span>
+                <a href="#">Terms of Service</a>
+                <span class="separator">|</span>`
+                <a href="#">Contact Us</a>
+             </div>
+        </div>
+    </footer>
+    </div>
+</html>

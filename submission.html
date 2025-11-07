@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submission Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- font awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css?v=20251023">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        
+        <div class="logo">
+    <i class="fa-solid fa-code"></i> BlackPixel
+    </div>      
+         <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li class="dropdown">
+                    <a href="#services">Services</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Web Design</a></li>
+                        <li><a href="#">Development</a></li>
+                        <li><a href="#">Collaborative</a></li>
+                    </ul>
+                </li>
+                <li><a href="contact.html" target="_self">Contact</a></li>
+                <li><a href="about.html" target="_self">About Us</a></li>
+                
+            </ul>
+        </nav>
+    </header>
+    <h2>All Submission</h2>
+    <ul id="list"></ul>
+    <script>
+        // Retrieve submissions from localStorage
+        const submissions = JSON.parse(localStorage.getItem('Contacts')) || [];
+
+        const list = document.getElementById('list');
+
+        submissions.forEach(submission => {
+            const listItem = document.createElement('li');
+            listItem.textContent = `Name: ${submission.name}, Email: ${submission.email}, Message: ${submission.message}`;
+            list.appendChild(listItem);
+        });
+    </script>
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-content">
+            <p class="footer-copyright"> © 2025 BlackPixel. All rights reserved</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <span class="separator">|</span>
+                <a href="#">Terms of Service</a>
+                <span class="separator">|</span>`
+                <a href="#">Contact Us</a>
+             </div>
+        </div>
+    </footer>
+</body>
+</html>

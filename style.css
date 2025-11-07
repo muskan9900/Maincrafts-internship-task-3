@@ -1,0 +1,876 @@
+/* ========== RESET & GLOBAL STYLES ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0a0e27;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+/* ========== HEADER STYLES ========== */
+header {
+    background-color: #0a0e27;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid #00d4ff;
+    box-shadow: 0 2px 10px rgba(0, 212, 255, 0.1);
+}
+
+/* Logo Styling */
+.logo {
+    font-size: 28px;
+    font-weight: 700;
+    color: #00d4ff;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: text-shadow 0.3s ease;
+}
+
+.logo:hover {
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.8);
+}
+
+ .logo i {
+    margin-right: 8px;
+    font-size: 24px;
+}
+
+/* Navigation List */
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+/* Menu Items */
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+/* Hover Effect on Menu Items */
+nav ul li a:hover {
+    color: #00d4ff;
+}
+
+/* Dropdown Container */
+.dropdown {
+    position: relative;
+}
+
+/* Dropdown Arrow Animation */
+.dropdown > a::after {
+    content: " ▼";
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+/* When hovering, rotate arrow */
+.dropdown:hover > a::after {
+    transform: rotate(180deg);
+}
+
+/* Dropdown Menu (Hidden by default) */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #1a1a2e;
+    list-style: none;
+    margin: 0;
+    margin-top: 10px;
+    padding: 10px 0;
+    min-width: 200px;
+    border-top: 2px solid #00d4ff;
+    border-radius: 4px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-menu {
+    display: block;
+    animation: slideDown 0.3s ease;
+}
+
+/* Dropdown animation */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Dropdown Menu Items */
+.dropdown-menu li a {
+    display: block;
+    padding: 12px 20px;
+    color: #ffffff;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-size: 15px;
+}
+
+/* Hover effect on dropdown items */
+.dropdown-menu li a:hover {
+    background-color: #00d4ff;
+    color: #0a0e27;
+    padding-left: 25px;
+}
+
+/* ========== HERO SECTION ========== */
+.hero {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('assets/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+    padding: 40px 20px;
+}
+
+/* Dark transparent overlay */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(10, 14, 39, 0.6);
+    z-index: 1;
+}
+
+/* Hero Content Container */
+.hero-content {
+    text-align: center;
+    max-width: 800px;
+    z-index: 10;
+    position: relative;
+    animation: fadeInUp 1s ease;
+}
+
+/* Fade in animation for content */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hero Heading */
+.hero-heading {
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: #ffffff;
+    letter-spacing: -1px;
+    animation: fadeInUp 1s ease 0.2s backwards;
+}
+
+/* Hero Tagline */
+.hero-tagline {
+    font-size: 20px;
+    color: #e0e0e0;
+    margin-bottom: 40px;
+    font-weight: 300;
+    line-height: 1.8;
+    animation: fadeInUp 1s ease 0.4s backwards;
+}
+
+/* CTA Button */
+.cta-button {
+    padding: 16px 40px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #0a0e27;
+    background-color: #00d4ff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+    animation: fadeInUp 1s ease 0.6s backwards;
+}
+
+/* Button Hover Effect */
+.cta-button:hover {
+    background-color: #00b8d4;
+    box-shadow: 0 8px 25px rgba(0, 212, 255, 0.6);
+    transform: translateY(-3px);
+}
+
+/* Button Active Effect */
+.cta-button:active {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+}
+
+/* ========== FEATURES SECTION ========== */
+
+.features {
+    min-height: auto;
+    background-color: #0f1729;
+    padding: 100px 40px;
+    text-align: center;
+}
+
+.features-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.features-heading {
+    font-size: 42px;
+    color: #ffffff;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.features-subheading {
+    font-size: 18px;
+    color: #b0b0b0;
+    margin-bottom: 60px;
+    font-weight: 300;
+}
+
+/* Flexbox Grid - Simplified Approach */
+.features-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Feature Card - Fixed Width Approach */
+.feature-card {
+    background: linear-gradient(145deg, #1a1a2e, #16213e);
+    padding: 40px 30px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    
+    /* Simple fixed width that works everywhere */
+    width: 270px;
+    
+    /* Strong box shadow */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6),
+                0 5px 15px rgba(0, 212, 255, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.feature-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 20px 50px rgba(0, 212, 255, 0.5),
+                0 15px 35px rgba(0, 0, 0, 0.7),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    border-color: #00d4ff;
+    background: linear-gradient(145deg, #1f2538, #1a2c4a);
+}
+
+/* Icon Circle */
+.feature-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 25px;
+    background: linear-gradient(135deg, #00d4ff, #0099cc);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    color: #0a0e27;
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover .feature-icon {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 5px 15px rgba(0, 212, 255, 0.5);
+}
+
+.feature-icon i {
+    display: block;
+}
+
+/* Feature Title */
+.feature-title {
+    font-size: 22px;
+    color: #ffffff;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+/* Feature Description */
+.feature-description {
+    font-size: 15px;
+    color: #b0b0b0;
+    line-height: 1.6;
+    font-weight: 300;
+}
+
+/* ========== RESPONSIVE ADJUSTMENTS ========== */
+
+/* Large Desktop - 4 cards fit nicely */
+@media (min-width: 1200px) {
+    .feature-card {
+        width: 270px;
+    }
+}
+
+/* Desktop - 4 cards or 2 rows of 2 */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .feature-card {
+        width: 260px;
+    }
+}
+
+/* Tablet - 2 cards per row */
+@media (min-width: 768px) and (max-width: 991px) {
+    .features {
+        padding: 80px 30px;
+    }
+    
+    .feature-card {
+        width: 320px;
+    }
+    
+    .features-heading {
+        font-size: 36px;
+    }
+}
+
+/* Mobile - 1 card per row */
+@media (max-width: 767px) {
+    .features {
+        padding: 60px 20px;
+    }
+    
+    .features-heading {
+        font-size: 32px;
+    }
+    
+    .features-subheading {
+        font-size: 16px;
+        margin-bottom: 40px;
+    }
+    
+    .features-grid {
+        gap: 20px;
+    }
+    
+    .feature-card {
+        width: 100%;
+        max-width: 400px;
+        padding: 30px 20px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .features {
+        padding: 40px 15px;
+    }
+    
+    .features-heading {
+        font-size: 28px;
+    }
+    
+    .feature-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+    }
+    
+    .feature-title {
+        font-size: 20px;
+    }
+    
+    .feature-description {
+        font-size: 14px;
+    }
+}
+
+/* ========== FOOTER SECTION ========== */
+footer {
+    background-color: #0a0e27;
+    border-top: 2px solid #00d4ff;
+    padding: 30px 40px;
+}
+
+.footer-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Copyright Text */
+.footer-copyright {
+    color: #b0b0b0;
+    font-size: 14px;
+    font-weight: 300;
+    margin: 0;
+}
+
+/* Footer Links Container */
+.footer-links {
+    display: flex;
+    align-items: center;
+    gap: 0;
+}
+
+/* Individual Links */
+.footer-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #00d4ff;
+}
+
+/* Separator Styling */
+.separator {
+    color: #00d4ff;
+    margin: 0 12px;
+    font-weight: 300;
+}
+
+/* ========== RESPONSIVE FOOTER ========== */
+
+/* Tablet and Mobile - Stack Vertically */
+@media (max-width: 768px) {
+    footer {
+        padding: 25px 20px;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .footer-copyright {
+        font-size: 13px;
+    }
+    
+    .footer-links {
+        justify-content: center;
+    }
+    
+    .footer-links a {
+        font-size: 13px;
+    }
+    
+    .separator {
+        margin: 0 10px;
+    }
+}
+
+/* Small Mobile - Even More Compact */
+@media (max-width: 480px) {
+    footer {
+        padding: 20px 15px;
+    }
+    
+    .footer-copyright {
+        font-size: 12px;
+    }
+    
+    .footer-links a {
+        font-size: 12px;
+    }
+    
+    .separator {
+        margin: 0 8px;
+    }
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+
+/* Tablet Screens (768px and below) */
+@media (max-width: 768px) {
+    header {
+        padding: 15px 20px;
+    }
+
+    .logo {
+        font-size: 24px;
+    }
+
+    nav ul {
+        gap: 15px;
+    }
+
+    nav ul li a {
+        font-size: 14px;
+    }
+
+    .dropdown-menu {
+        min-width: 150px;
+    }
+
+    .dropdown-menu li a {
+        padding: 10px 15px;
+    }
+
+    .hero {
+        min-height: 70vh;
+        padding: 30px 15px;
+    }
+
+    .hero-heading {
+        font-size: 40px;
+        margin-bottom: 15px;
+    }
+
+    .hero-tagline {
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+
+    .cta-button {
+        padding: 14px 32px;
+        font-size: 14px;
+    }
+}
+
+/* Mobile Screens (480px and below) */
+@media (max-width: 480px) {
+    header {
+        padding: 12px 15px;
+        flex-wrap: wrap;
+    }
+
+    .logo {
+        font-size: 20px;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    nav ul {
+        gap: 10px;
+        width: 100%;
+        font-size: 13px;
+    }
+
+    nav ul li a {
+        font-size: 12px;
+    }
+
+    .dropdown-menu {
+        min-width: 120px;
+        left: -20px;
+    }
+
+    .hero {
+        min-height: 60vh;
+        padding: 20px 15px;
+    }
+
+    .hero-content {
+        max-width: 100%;
+    }
+
+    .hero-heading {
+        font-size: 28px;
+        margin-bottom: 15px;
+        letter-spacing: 0;
+    }
+
+    .hero-tagline {
+        font-size: 14px;
+        margin-bottom: 25px;
+    }
+
+    .cta-button {
+        padding: 12px 24px;
+        font-size: 12px;
+        letter-spacing: 0.5px;
+    }
+
+  /* Base features section styles — apply to all screen sizes */
+.features {
+    min-height: auto;
+    background-color: #0f1729;
+    padding: 100px 40px;
+    text-align: center;
+}
+
+.features-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.features-heading {
+    font-size: 42px;
+    color: #ffffff;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.features-subheading {
+    font-size: 18px;
+    color: #b0b0b0;
+    margin-bottom: 60px;
+    font-weight: 300;
+}
+
+.features-grid {
+  display: flex !important;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.feature-card {
+  flex: 0 1 calc(25% - 25px);
+  min-width: 250px;
+  background: linear-gradient(145deg, #1a1a2e, #16213e);
+  padding: 40px 30px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+/* ... then keep your responsive versions below: */
+@media (max-width: 1024px) {
+    .feature-card { flex: 0 1 calc(50% - 20px); }
+}
+
+@media (max-width: 768px) {
+    .feature-card { flex: 0 1 100%; }
+}
+
+} 
+
+/* ========== CONTACT PAGE STYLES ========== */
+.contact {
+    background-color: #0a0e27;
+    padding: 60px 40px;
+    color: #ffffff;
+}
+
+.contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-heading {
+    font-size: 36px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    color: #00d4ff;
+} 
+
+.contact-subheading {
+    font-size: 18px;
+    margin-bottom: 40px;
+    color: #b0b0b0;
+    text-align: center;
+}
+
+.contact-form {
+    background: linear-gradient(145deg, #1a1a2e, #16213e);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    width: 100%;
+    max-width: 600px;
+}
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #0f1729;
+    color: #ffffff;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 212, 255, 0.5);
+}
+
+.contact-form button {
+    background-color: #00d4ff;
+    color: #0a0e27;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: #00b8d4;
+    transform: translateY(-2px);
+}
+.contact-form button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+/* ========== RESPONSIVE CONTACT PAGE ========== */
+@media (max-width: 768px) { 
+    .contact {
+        padding: 40px 20px;
+    }
+
+    .contact-heading {
+        font-size: 32px;
+    }
+
+    .contact-subheading {
+        font-size: 16px;
+    }
+
+    .contact-form {
+        padding: 30px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 14px;
+    }
+
+    .contact-form button {
+        font-size: 14px;
+        padding: 12px 24px;
+    }
+}
+ 
+/* ========== ABOUT US PAGE STYLES ========== */
+.about {
+    background-color: #0a0e27;
+    padding: 60px 40px;
+    color: #ffffff;
+}
+
+.about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-heading {
+    font-size: 36px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    color: #00d4ff;
+}
+
+.about-text {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #f2eeee;
+}
+
+/* ========== RESPONSIVE ABOUT US PAGE ========== */
+@media (max-width: 768px) {
+    .about {
+        padding: 40px 20px;
+    }
+
+    .about-heading {
+        font-size: 32px;
+    }
+
+    .about-text {
+        font-size: 16px;
+    }
+
+    html { scroll-behavior: smooth;
+        scroll-padding-top: 100px;
+    }
+}
+
+/* Submissions Page */
+h2 {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 28px;
+  font-weight: 600;
+  color: #faf9f9;
+  font-family: 'Inter', sans-serif;
+}
+
+#list {
+  list-style-type: none;
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 0;
+}
+
+#list li {
+  background-color: #f9f9f9;
+  margin-bottom: 15px;
+  padding: 15px 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  color: #333;
+  font-family: 'Inter', sans-serif;
+  line-height: 1.5;
+}
+
+#list li:hover {
+  background-color: #f1f1f1;
+  transition:background0.3s ease;
+}
+
+
+
+
+
+
+
+
+
+
+
+
